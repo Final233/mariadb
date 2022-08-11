@@ -16,7 +16,7 @@ MAKE_OPT="cmake . -DCMAKE_INSTALL_PREFIX=$basepath/apps/$app_dir -DMYSQL_DATADIR
 
 _make_install(){
     wget -c https://mirrors.gigenet.com/mariadb/$app_name-$version/source/$app_name-$version.tar.gz
-    tar xf $app_pkg_name.tar.xz
+    tar xf $app_pkg_name.tar.gz
     cd $app_dir && $MAKE_OPT && make -j $(nproc) && make install 
     cp support-files/wsrep.cnf $basepath/$app_dir/
     cp support-files/mysql.server $basepath/$app_dir/mysqld
