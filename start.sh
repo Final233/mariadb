@@ -20,7 +20,7 @@ _make_install(){
     cd $app_dir && $MAKE_OPT && make -j $(nproc) && make install 
     cp support-files/wsrep.cnf $basepath/$app_dir/
     cp support-files/mysql.server $basepath/$app_dir/mysqld
-    cd .. && tar Jcvf $app_pkg_name.tar.xz $app_pkg_name
+    cd .. && tar Jcvf $app_pkg_name.tar.xz apps/$app_pkg_name
 }
 
 _make_install "$@"
