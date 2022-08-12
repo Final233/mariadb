@@ -28,4 +28,4 @@ _make_install "$@"
 gh release delete ${app_pkg_name} -y
 
 # gh release create ${PKGNAME} ./*.tar.xz --title "${PKGNAME} (beta)" --notes "this is a nginx beta release" --prerelease
-gh release create ${app_pkg_name} $app_pkg_name.tar.xz --title "${app_pkg_name}" --notes "this is a mariadb release" --prerelease
+gh release create ${app_pkg_name} $app_pkg_name.tar.xz --title "${app_pkg_name}" --notes "this is a make mariadb release" --prerelease
