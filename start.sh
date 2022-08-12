@@ -22,7 +22,9 @@ _make_install() {
     tar xf $app_pkg_name.tar.gz
     cd $app_dir && $MAKE_OPT && make -j $(nproc) && make install
     cp support-files/wsrep.cnf $basepath/$app_dir/
+    cp support-files/mysql.server $basepath/$app_dir/
     data_path=/data/mariadb
+    cd $basepath/$app_dir/
     if grep datadir support-files/wsrep.cnf; then
         sed -ri "/datadir=/s@ (datadir=).*@\1${data_path}@" support-files/wsrep.cnf
     else
@@ -33,7 +35,6 @@ _make_install() {
     else
         sed "/\[mysqld\]/asocket=${data_path}/mysql.sock" support-files/wsrep.cnf
     fi
-    cp support-files/mysql.server $basepath/$app_dir/mysqld
     cd .. && tar Jcvf $app_pkg_name.tar.xz apps/$app_pkg_name
 }
 
